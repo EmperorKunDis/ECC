@@ -25,6 +25,24 @@ Nejbezpečnější varianta pro fork je **nepřekládat celý kořenový `README
 
 Detailní návrh synchronizace a režimů lokalizace je v dokumentu [FORK-STRATEGY.md](FORK-STRATEGY.md).
 
+## Proč to na GitHubu ještě nevidím
+
+Pokud se v mobilní aplikaci GitHubu pořád zobrazuje jen anglický seznam jazyků bez položky **Čeština**, znamená to obvykle jednu z těchto věcí:
+
+1. Díváte se na větev `main`, ale změna je zatím jen na pracovní větvi.
+2. Commit nebyl pushnutý do vašeho GitHub forku.
+3. Pull request nebyl vytvořený na GitHubu, protože lokální checkout nemá nastavený `origin` remote.
+4. GitHub aplikace ukazuje starý cacheovaný obsah; po pushi zkuste obnovit stránku nebo otevřít README v prohlížeči.
+
+Pro skutečné zobrazení přepínače je potřeba dostat commit s úpravou kořenového `README.md` na větev, kterou GitHub zobrazuje, typicky `main`. Minimální postup je:
+
+```bash
+git remote add origin git@github.com:<vas-ucet>/ECC.git
+git push -u origin work
+```
+
+Potom na GitHubu vytvořte pull request z větve `work` do `main`, nebo změnu mergeujte do `main` a pushněte `main`. Až bude commit na `main`, nahoře v README se objeví odkaz **Čeština**.
+
 ## Jak fork aktualizovat z upstreamu
 
 Repo obsahuje workflow `.github/workflows/sync-upstream.yml`, které lze spustit ručně nebo plánovaně. Workflow:

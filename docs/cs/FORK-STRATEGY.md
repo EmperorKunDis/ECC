@@ -87,6 +87,19 @@ Nevýhody:
 
 Tento režim nedoporučujeme pro pravidelně synchronizovaný fork. Lepší kompromis je malý český přepínač v kořenovém README a vlastní český obsah v `docs/cs/`.
 
+## Publikace změn na GitHub fork
+
+Lokální commit s českým přepínačem nestačí. GitHub zobrazí změny až po pushi do vzdáleného forku a po merge do větve, kterou právě sledujete, typicky `main`. Pokud `git remote -v` neukazuje žádný `origin`, nelze z lokálního prostředí vytvořit skutečný GitHub pull request ani pushnout změny.
+
+Doporučený postup:
+
+```bash
+git remote add origin git@github.com:<vas-ucet>/ECC.git
+git push -u origin work
+```
+
+Následně otevřete pull request `work` → `main` v GitHub UI. Po merge do `main` bude český přepínač viditelný v root README.
+
 ## Automatická synchronizace s upstreamem
 
 Workflow `.github/workflows/sync-upstream.yml` je navrženo jako jednoduchý bezpečný merge bot pro fork. Spouští se ručně přes `workflow_dispatch` a plánovaně jednou denně.
