@@ -16,12 +16,12 @@ ECC je sada agentů, dovedností, pravidel, hooků, MCP konfigurací a instalač
 
 ## Doporučený způsob zobrazení češtiny na GitHubu
 
-Nejbezpečnější varianta pro fork je **nepřekládat ani nepřepisovat kořenový `README.md`**. GitHub sice na hlavní stránce repozitáře vždy zobrazuje právě kořenový `README.md`, ale jeho úprava by při každém upstream updatu vytvářela konflikty. Místo toho:
+Nejbezpečnější varianta pro fork je **nepřekládat celý kořenový `README.md`**; praktický kompromis je ponechat ho převážně upstreamový a přidat jen krátký český odkaz/přepínač nahoře. GitHub sice na hlavní stránce repozitáře vždy zobrazuje právě kořenový `README.md`, ale jeho úprava by při každém upstream updatu vytvářela konflikty. Místo toho:
 
-1. Nechte kořenový `README.md` sledovat upstream.
-2. Český obsah udržujte v `docs/cs/`.
-3. V popisu repozitáře nebo v poli **Website** na GitHubu odkažte na `docs/cs/README.md` nebo na GitHub Pages stránku vytvořenou z této složky.
-4. Pokud opravdu chcete český text přímo na hlavní stránce forku, použijte krátký český blok v kořenovém `README.md` a počítejte s tím, že je to konfliktnější režim.
+1. Kořenový `README.md` držte převážně upstreamový.
+2. Nahoře v `README.md` mějte jen krátký odkaz/přepínač na češtinu.
+3. Český obsah udržujte v `docs/cs/`.
+4. V popisu repozitáře nebo v poli **Website** na GitHubu můžete navíc odkazovat na `docs/cs/README.md` nebo na GitHub Pages stránku vytvořenou z této složky.
 
 Detailní návrh synchronizace a režimů lokalizace je v dokumentu [FORK-STRATEGY.md](FORK-STRATEGY.md).
 

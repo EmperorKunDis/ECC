@@ -9,13 +9,14 @@ Cílem je provozovat českou prezentační a dokumentační vrstvu na vlastním 
 - fork šel pravidelně aktualizovat při každé nové upstream verzi,
 - bylo jasné, co je lokální český overlay a co je převzatý upstream.
 
-## Proč neměnit kořenový `README.md`
+## Proč nepřekládat celý kořenový `README.md`
 
 GitHub na hlavní stránce repozitáře zobrazuje kořenový `README.md`. To svádí k jeho překladu, ale u forku je to nejčastější zdroj konfliktů, protože upstream README se často mění při releasu, změnách badge, sponsorů, instalačních příkazů a release poznámek.
 
 Doporučený model je proto:
 
-- `README.md` ponechat jako upstream-sledovaný soubor,
+- `README.md` ponechat převážně upstreamový,
+- nahoře v `README.md` držet jen minimální český odkaz v jazykovém přepínači,
 - českou dokumentaci držet v `docs/cs/`,
 - na GitHubu odkazovat na český vstupní bod `docs/cs/README.md`,
 - případně publikovat český vstup přes GitHub Pages.
@@ -44,7 +45,7 @@ Nepřesouvejte upstream soubory a nepřepisujte anglické originály. Česká vr
 
 ### Režim A — nejméně konfliktní
 
-Použijte `docs/cs/README.md` jako český landing page a vložte odkaz do GitHub polí **Description** nebo **Website**.
+Použijte `docs/cs/README.md` jako český landing page a vložte odkaz do horního jazykového přepínače v `README.md`. Volitelně stejný odkaz přidejte i do GitHub polí **Description** nebo **Website**.
 
 Výhody:
 
@@ -54,7 +55,7 @@ Výhody:
 
 Nevýhoda:
 
-- hlavní README na stránce repozitáře zůstane anglické, protože GitHub neumí pro fork nastavit jiný README bez změny souboru.
+- hlavní README na stránce repozitáře zůstane převážně anglické, protože GitHub neumí pro fork nastavit jiný README bez změny souboru; český přepínač je ale viditelný nahoře.
 
 ### Režim B — GitHub Pages pro českou prezentaci
 
@@ -70,13 +71,13 @@ Nevýhoda:
 
 - vyžaduje zapnout GitHub Pages v nastavení repozitáře nebo doplnit samostatný deploy workflow.
 
-### Režim C — český blok v kořenovém README
+### Režim C — celý český kořenový README
 
-Do horní části `README.md` lze vložit krátký český blok s odkazem na `docs/cs/README.md`.
+Kořenový `README.md` lze kompletně přeložit do češtiny.
 
 Výhody:
 
-- návštěvník ho uvidí ihned na hlavní stránce forku.
+- návštěvník uvidí plnou češtinu ihned na hlavní stránce forku.
 
 Nevýhody:
 
@@ -84,7 +85,7 @@ Nevýhody:
 - upstream změny README bude nutné častěji řešit ručně,
 - fork se bude více odchylovat od originálu.
 
-Tento režim doporučujeme jen v případě, že česká viditelnost na hlavní stránce forku je důležitější než bezkonfliktní synchronizace.
+Tento režim nedoporučujeme pro pravidelně synchronizovaný fork. Lepší kompromis je malý český přepínač v kořenovém README a vlastní český obsah v `docs/cs/`.
 
 ## Automatická synchronizace s upstreamem
 
@@ -116,9 +117,9 @@ Nejčastější konflikty vzniknou, pokud upravíte stejné soubory jako upstrea
 
 1. Upstream produktové soubory (`scripts/`, `skills/`, `agents/`, `rules/`, package metadata) preferujte z upstreamu.
 2. Lokální české dokumenty v `docs/cs/` preferujte z forku.
-3. Kořenový `README.md` držte ideálně upstreamový; české změny přesouvejte do `docs/cs/`.
+3. Kořenový `README.md` držte ideálně upstreamový kromě krátkého českého přepínače; delší české změny přesouvejte do `docs/cs/`.
 4. Po ručním merge spusťte validační testy podle `package.json`.
 
 ## Shrnutí doporučení
 
-Nejlepší kompromis je **český overlay v `docs/cs/` + automatický upstream merge workflow + odkaz na český vstup z GitHub metadat nebo Pages**. Tento přístup splňuje českou prezentaci, zachovává vazbu na originální ECC a minimalizuje konflikty při nových verzích.
+Nejlepší kompromis je **krátký český přepínač v kořenovém `README.md` + český overlay v `docs/cs/` + automatický upstream merge workflow + volitelný odkaz z GitHub metadat nebo Pages**. Tento přístup splňuje českou prezentaci, zachovává vazbu na originální ECC a minimalizuje konflikty při nových verzích.
