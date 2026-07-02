@@ -100,6 +100,10 @@ git push -u origin work
 
 Následně otevřete pull request `work` → `main` v GitHub UI. Po merge do `main` bude český přepínač viditelný v root README.
 
+### Mobilní postup bez terminálu
+
+Na mobilu otevřete `README.md` ve svém forku, klepněte na **Edit**, vložte `| [Čeština](docs/cs/README.md) |` do prvního jazykového řádku hned za `English` a dole použijte **Commit changes**. Pro okamžité zobrazení commitněte přímo do `main`; pro kontrolu zvolte novou větev a vytvořte PR v GitHub UI.
+
 ## Automatická synchronizace s upstreamem
 
 Workflow `.github/workflows/sync-upstream.yml` je navrženo jako jednoduchý bezpečný merge bot pro fork. Spouští se ručně přes `workflow_dispatch` a plánovaně jednou denně.

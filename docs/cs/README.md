@@ -43,6 +43,30 @@ git push -u origin work
 
 Potom na GitHubu vytvořte pull request z větve `work` do `main`, nebo změnu mergeujte do `main` a pushněte `main`. Až bude commit na `main`, nahoře v README se objeví odkaz **Čeština**.
 
+### Varianta bez terminálu: jen z mobilu
+
+Pokud jste jen na mobilu, nejrychlejší způsob je upravit `README.md` přímo v GitHub aplikaci nebo v mobilním prohlížeči:
+
+1. Otevřete svůj fork na GitHubu.
+2. Otevřete soubor `README.md`.
+3. Klepněte na **Edit**.
+4. Na první řádek přidejte odkaz `Čeština` do jazykového seznamu, například hned za `English`:
+
+   ```markdown
+   **Language:** English | [Čeština](docs/cs/README.md) | [Português (Brasil)](docs/pt-BR/README.md)
+   ```
+
+5. Níže v README můžete volitelně přidat krátký český blok:
+
+   ```markdown
+   > [!TIP]
+   > **Česky:** Český vstup pro tento fork najdete v [`docs/cs/README.md`](docs/cs/README.md).
+   ```
+
+6. Dole zvolte **Commit changes**. Pokud chcete, aby se změna ukázala hned, commitněte ji přímo do `main`. Pokud chcete PR, zvolte vytvoření nové větve a GitHub vám nabídne pull request.
+
+Důležité: dokud změna není commitnutá na GitHubu do větve `main`, mobilní aplikace bude dál ukazovat staré anglické README.
+
 ## Jak fork aktualizovat z upstreamu
 
 Repo obsahuje workflow `.github/workflows/sync-upstream.yml`, které lze spustit ručně nebo plánovaně. Workflow:
